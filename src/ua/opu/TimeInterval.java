@@ -19,8 +19,8 @@ import java.time.LocalTime;
  * Класс должен начинаться с большой буквы, обычно это имя существительное.
  * Если имя класса состоит из нескольких слов, каждое слово начинается с большой буквы
  * Пример правильно названных классов: Stack, ConnectionManager, BinaryTree
- * Пример НЕПРАВИЛЬНО называнных классов: logging, MYCLASS, Big_Dog, run
- * <p>
+ * Пример НЕПРАВИЛЬНО названных классов: logging, MYCLASS, Big_Dog, run
+ *
  * Синтаксис объявления класса: [модификатор доступа] class [ИмяКласса] {
  * тело класса
  * }
@@ -111,7 +111,7 @@ public class TimeInterval {
      * Оно позволяет разрешить конфликт, когда локальная переменная метода
      * и поле класса могут иметь одинаковое имя
      *
-     * @param startTime новое значание начальной точки интервала.
+     * @param startTime новое значение начальной точки интервала.
      */
     public void setStartTime(Time startTime) {
         this.startTime = startTime;
@@ -147,7 +147,7 @@ public class TimeInterval {
          * Например, метод который пишет в файл может возвращать количество
          * записанных байт либо -1 если записать в файл не удалось
          */
-        if (endTime.before(startTime)) {
+        if (!endTime.before(startTime)) {
             this.startTime = startTime;
             this.endTime = endTime;
             return true;
@@ -159,5 +159,9 @@ public class TimeInterval {
              */
             return false;
         }
+    }
+
+    public long getTimeInterval() {
+        return endTime.getTime() - startTime.getTime();
     }
 }
