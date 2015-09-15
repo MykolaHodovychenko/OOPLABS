@@ -1,6 +1,5 @@
 package ua.opu;
 
-
 import ua.opu.structures.BinaryTree;
 
 import java.sql.Time;
